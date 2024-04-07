@@ -1,0 +1,22 @@
+name: To find Smallest Number
+on: [push]
+jobs:
+  output_small_number:
+    name: output_small_number
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      name: Run script
+    - name: Test Case 1
+      run: |
+        python3 find_lowest_number.py test_data/test1_input.txt output.txt
+        diff -u output.txt test_data/test1_expected.txt
+    - name: Test Case 2
+      run: |
+        python3 find_lowest_number.py test_data/test2_input.txt output.txt
+        diff -u output.txt test_data/test2_expected.txt
+    - name: Test Case 3
+      run: |
+        python3 find_lowest_number.py test_data/test3_input.txt output.txt
+        diff -u output.txt test_data/test3_expected.txt
+    
